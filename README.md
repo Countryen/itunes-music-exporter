@@ -95,14 +95,14 @@ Coming soon.
 <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Major Version</key><integer>1</integer>
-	<key>Minor Version</key><integer>1</integer>
-	<key>Application Version</key><string>12.5.1.21</string>
-	<key>Date</key><date>2019-08-14T21:01:18Z</date>
-	<key>Features</key><integer>5</integer>
-	<key>Show Content Ratings</key><true/>
-	<key>Library Persistent ID</key><string>*****</string>
-	<key>Tracks</key>
+    <key>Major Version</key><integer>1</integer>
+    <key>Minor Version</key><integer>1</integer>
+    <key>Application Version</key><string>12.5.1.21</string>
+    <key>Date</key><date>2019-08-14T21:01:18Z</date>
+    <key>Features</key><integer>5</integer>
+    <key>Show Content Ratings</key><true/>
+    <key>Library Persistent ID</key><string>*****</string>
+    <key>Tracks</key>
     <dict>
         <key>1000</key>
             <dict>
@@ -129,55 +129,55 @@ Coming soon.
                 <key>Location</key><string>file:///Users/testuser/Music/iTunes/iTunes%20Media/Music/The%20Best%20Artist/Unknown%20Album/Title_1.mp3</string>
             </dict>
         </dict>
-	<key>Playlists</key>
-	<array>
-		<dict>
-			<key>Master</key><true/>
-			<key>Playlist ID</key><integer>5000</integer>
-			<key>Playlist Persistent ID</key><string>*****</string>
-			<key>All Items</key><true/>
-			<key>Visible</key><false/>
-			<key>Name</key><string>Mediathek</string>
-			<key>Playlist Items</key>
-			<array>
-				<dict>
-					<key>Track ID</key><integer>1000</integer>
-				</dict>
-			</array>
-		</dict>
-		<dict>
-			<key>Playlist ID</key><integer>6000</integer>
-			<key>Playlist Persistent ID</key><string>*****</string>
-			<key>Distinguished Kind</key><integer>4</integer>
-			<key>Music</key><true/>
-			<key>All Items</key><true/>
-			<key>Name</key><string>Best Artist</string>
-			<key>Smart Info</key>
-			<data>
-			AQEAAwAAAAIAAAAZAAAAAAAAAAcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-			AAAAAA==
-			</data>
-			<key>Smart Criteria</key>
-			<data>
-			U0xzdAABAAEAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwAAAQAAAAAAAAAAAAAAAAAAAAAAAAA
-			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEAAAAAAAQIbEAAAAAAAAAAAAAAAAAAAAB
-			AAAAAAAQIbEAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8AgAEAAAA
-			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARAAAAAAAIIAE
-			AAAAAAAAAAAAAAAAAAAAAQAAAAAAIIAEAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAA
-			AAAAAAAA
-			</data>
-			<key>Playlist Items</key>
+    <key>Playlists</key>
+    <array>
+        <dict>
+            <key>Master</key><true/>
+            <key>Playlist ID</key><integer>5000</integer>
+            <key>Playlist Persistent ID</key><string>*****</string>
+            <key>All Items</key><true/>
+            <key>Visible</key><false/>
+            <key>Name</key><string>Mediathek</string>
+            <key>Playlist Items</key>
             <array>
-				<dict>
-					<key>Track ID</key><integer>1000</integer>
-				</dict>
-			</array>
+                <dict>
+                    <key>Track ID</key><integer>1000</integer>
+                </dict>
+            </array>
+        </dict>
+        <dict>
+            <key>Playlist ID</key><integer>6000</integer>
+            <key>Playlist Persistent ID</key><string>*****</string>
+            <key>Distinguished Kind</key><integer>4</integer>
+            <key>Music</key><true/>
+            <key>All Items</key><true/>
+            <key>Name</key><string>Best Artist</string>
+            <key>Smart Info</key>
+            <data>
+            AQEAAwAAAAIAAAAZAAAAAAAAAAcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+            AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+            AAAAAA==
+            </data>
+            <key>Smart Criteria</key>
+            <data>
+            U0xzdAABAAEAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+            AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+            AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwAAAQAAAAAAAAAAAAAAAAAAAAAAAAA
+            AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEAAAAAAAQIbEAAAAAAAAAAAAAAAAAAAAB
+            AAAAAAAQIbEAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8AgAEAAAA
+            AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARAAAAAAAIIAE
+            AAAAAAAAAAAAAAAAAAAAAQAAAAAAIIAEAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAA
+            AAAAAAAA
+            </data>
+            <key>Playlist Items</key>
+            <array>
+                <dict>
+                    <key>Track ID</key><integer>1000</integer>
+                </dict>
+            </array>
         </dict>
     </array>
-	<key>Music Folder</key><string>file:///Users/testuser/Music/iTunes/iTunes%20Media/</string>
+    <key>Music Folder</key><string>file:///Users/testuser/Music/iTunes/iTunes%20Media/</string>
 </dict>
 </plist>
 ```
