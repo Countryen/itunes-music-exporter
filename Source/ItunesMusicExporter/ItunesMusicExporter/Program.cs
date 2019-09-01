@@ -12,7 +12,8 @@ namespace ItunesMusicExporter
 {
     /// <summary>
     /// Prototype 1 for the ItunesMusicExporter -> Export/Copy Music (MP3-Files) from iTunes-Storage-Folder into playlist-folders.
-    /// Quick and dirty, trying things out, using highly instable code and without any best practices used.
+    /// Quick and dirty, trying single steps out, using highly instable code and without any best practices used.
+    /// Status: Works with simulated files/folders and a test file with 1/2 entries (PL/Tracks). Paths and all is hardcoded.
     /// September 2019, Countryen @ C0 | .NET Core v2.2
     /// </summary>
     class Program
