@@ -181,3 +181,10 @@ Coming soon.
 </dict>
 </plist>
 ```
+
+References:
+- https://www.newtonsoft.com/json
+- https://stackoverflow.com/questions/13171525/converting-xml-to-a-dynamic-c-sharp-object
+- https://stackoverflow.com/questions/35921268/c-sharp-dynamic-expandoobject-array
+- https://stackoverflow.com/questions/26778554/why-cant-i-index-into-an-expandoobject
+- https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm
