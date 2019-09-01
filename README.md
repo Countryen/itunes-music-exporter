@@ -1,9 +1,9 @@
 # Under Development
 Please don't use the tool as it's still not finished.
+First Prototype is done, using hard coded, simple functions to extract the files.
 
 # Description
-Just a little helper tool, created in my freetime for a friend of mine using a Mac and iTunes.
-Developed in C# with .NET Core because target platform is Mac OS.
+Coming soon...
 
 # Explanation
 iTunes stores the music in a special folder on the Mac.
@@ -17,6 +17,10 @@ Afterwards, you can copy the (playlist-)folders to another device of your choice
 
 # Usage
 Coming soon.
+
+# Environment
+Just a little helper tool, created in my freetime for a friend of mine using a Mac and iTunes.
+Developed in C# with .NET Core because target platform is Mac OS.
 
 # About: XML file
 ## Basic Structure
