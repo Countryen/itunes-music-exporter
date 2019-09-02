@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq.Expressions;
-using System.Collections;
-using System.Dynamic;
-using System.Xml.Linq;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System.Linq;
+﻿using System.Threading.Tasks;
 using CliFx;
-using System.Threading.Tasks;
-using CliFx.Services;
-using CliFx.Attributes;
 
 /// CLIFX: 
 /// Can only use public classes as commands, not internal, not private
@@ -49,4 +38,3 @@ namespace ItunesMusicExporter
         }
     }
 }
-
