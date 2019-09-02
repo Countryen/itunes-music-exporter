@@ -12,49 +12,9 @@ using Newtonsoft.Json.Linq;
 
 namespace ItunesMusicExporter
 {
-    [Command("p1", Description = "Prototype 1")]
-    public class Prototype1Command : ICommand
+    static class Actions
     {
-        public Task ExecuteAsync(IConsole console)
-        {
-            new Action(() =>
-            {
-                string PATH1 = "./Resources/Test1.xml";
-                string PATH2 = "./Resources/TestSource1/";
-                string PATH3 = "./TestDestination1/";
-
-                Console.WriteLine("Start");
-                ExpandoObject expandoXml = DeserializeXmlExpando(PATH1);
-                dynamic dynamicXml = DeserializeXmlDynamic(PATH1);
-
-                string musicFolder = GetMusicFolder(PATH1);
-                var tracks = GetTracks(PATH1);
-                var playlists = GetPlaylists(PATH1);
-                var together = GetTracksAndPlaylistsCombined(PATH1);
-                ExtractPlaylistsSim(PATH1, PATH2, PATH3);
-            }).Invoke();
-
-            new Action(() =>
-            {
-                string PATH1 = "./Resources/Test2.xml";
-                string PATH2 = "./Resources/TestSource2/";
-                string PATH3 = "./TestDestination2/";
-
-                console.Output.WriteLine("Start");
-                ExpandoObject expandoXml = DeserializeXmlExpando(PATH1);
-                dynamic dynamicXml = DeserializeXmlDynamic(PATH1);
-
-                string musicFolder = GetMusicFolder(PATH1);
-                var tracks = GetTracks(PATH1);
-                var playlists = GetPlaylists(PATH1);
-                var together = GetTracksAndPlaylistsCombined(PATH1);
-                ExtractPlaylistsSim(PATH1, PATH2, PATH3);
-            }).Invoke();
-
-            return Task.CompletedTask;
-        }
-
-        private void ExtractPlaylistsSim(string path, string pathSrc, string pathDest)
+        public static void ExtractPlaylistsSim(string path, string pathSrc, string pathDest)
         {
             var pls = GetTracksAndPlaylistsCombined(path);
 
@@ -71,7 +31,7 @@ namespace ItunesMusicExporter
             }
         }
 
-        dynamic DeserializeXmlDynamic(string path)
+        public static dynamic DeserializeXmlDynamic(string path)
         {
             XDocument doc = XDocument.Load(path); //or XDocument.Parse(text)
             string jsonText = JsonConvert.SerializeXNode(doc);
@@ -79,7 +39,7 @@ namespace ItunesMusicExporter
             return result;
         }
 
-        dynamic DeserializeXmlExpando(string path)
+        public static dynamic DeserializeXmlExpando(string path)
         {
             // Expando object is a bit of a hassle because of this: https://stackoverflow.com/questions/26778554/why-cant-i-index-into-an-expandoobject
             XDocument doc = XDocument.Load(path); //or XDocument.Parse(text)
@@ -88,7 +48,7 @@ namespace ItunesMusicExporter
             return result;
         }
 
-        string GetMusicFolder(string path)
+        public static string GetMusicFolder(string path)
         {
 
             var o = DeserializeXmlDynamic(path);
@@ -97,7 +57,7 @@ namespace ItunesMusicExporter
             return result;
         }
 
-        IList<(int Key, string Name, string Location)> GetTracks(string path)
+        public static IList<(int Key, string Name, string Location)> GetTracks(string path)
         {
             var result = new List<(int Key, string Name, string Location)>();
             var o = DeserializeXmlDynamic(path);
@@ -115,7 +75,7 @@ namespace ItunesMusicExporter
 
                     int key = tracksKeys[i];
                     string title = track["string"][2];
-                    string location = track["string"][5];
+                    string location = track["string"].Last;
 
                     result.Add((key, title, location));
                 }
@@ -135,7 +95,7 @@ namespace ItunesMusicExporter
             return result;
         }
 
-        IList<(int Id, string Name, int[] Tracks)> GetPlaylists(string path)
+        public static IList<(int Id, string Name, int[] Tracks)> GetPlaylists(string path)
         {
             var result = new List<(int Id, string Name, int[] Tracks)>();
             dynamic o = DeserializeXmlDynamic(path);
@@ -170,14 +130,17 @@ namespace ItunesMusicExporter
 
                 // If PL contains only 1 Track, it's an JObject not an JArray. JObjects are indexed like Dictionaries.
                 tracks.Clear();
-                JToken tracksContainer = pl["array"]["dict"];
-                if (tracksContainer.Type == JTokenType.Array)
+                if (pl.ToObject<JObject>().ContainsKey("array"))
                 {
-                    foreach (var track in tracksContainer)
-                        tracks.Add(track["integer"].Value<int>());
+                    JToken tracksContainer = pl["array"]["dict"];
+                    if (tracksContainer.Type == JTokenType.Array)
+                    {
+                        foreach (var track in tracksContainer)
+                            tracks.Add(track["integer"].Value<int>());
+                    }
+                    else
+                        tracks.Add(tracksContainer["integer"].Value<int>());
                 }
-                else
-                    tracks.Add(tracksContainer["integer"].Value<int>());
 
                 result.Add((id, name, tracks.ToArray()));
             }
@@ -185,7 +148,7 @@ namespace ItunesMusicExporter
             return result;
         }
 
-        IList<(string Name, IEnumerable<(int Id, string Name, string Location)> Tracks)> GetTracksAndPlaylistsCombined(string path)
+        public static IList<(string Name, IEnumerable<(int Id, string Name, string Location)> Tracks)> GetTracksAndPlaylistsCombined(string path)
         {
             var tracks = GetTracks(path);
             var playlists = GetPlaylists(path);
@@ -199,6 +162,5 @@ namespace ItunesMusicExporter
                 return y;
             }).ToList();
         }
-
     }
 }
