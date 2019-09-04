@@ -12,8 +12,13 @@ using Newtonsoft.Json.Linq;
 
 namespace ItunesMusicExporter
 {
-    static class Actions
+    /// <summary>
+    /// Quick and Dirty Utils to quickly process the data of the project.
+    /// Only used for quickly getting a grasp on things.
+    /// </summary>
+    static class DirtyUtils
     {
+        [Obsolete("Dirty")]
         public static void ExtractPlaylistsSim(string path, string pathSrc, string pathDest)
         {
             var pls = GetTracksAndPlaylistsCombined(path);
@@ -31,6 +36,7 @@ namespace ItunesMusicExporter
             }
         }
 
+        [Obsolete("Dirty")]
         public static dynamic DeserializeXmlDynamic(string path)
         {
             XDocument doc = XDocument.Load(path); //or XDocument.Parse(text)
@@ -39,6 +45,7 @@ namespace ItunesMusicExporter
             return result;
         }
 
+        [Obsolete("Dirty")]
         public static dynamic DeserializeXmlExpando(string path)
         {
             // Expando object is a bit of a hassle because of this: https://stackoverflow.com/questions/26778554/why-cant-i-index-into-an-expandoobject
@@ -48,6 +55,7 @@ namespace ItunesMusicExporter
             return result;
         }
 
+        [Obsolete("Dirty")]
         public static string GetMusicFolder(string path)
         {
 
@@ -57,6 +65,7 @@ namespace ItunesMusicExporter
             return result;
         }
 
+        [Obsolete("Dirty")]
         public static IList<(int Key, string Name, string Location)> GetTracks(string path)
         {
             var result = new List<(int Key, string Name, string Location)>();
@@ -95,6 +104,7 @@ namespace ItunesMusicExporter
             return result;
         }
 
+        [Obsolete("Dirty")]
         public static IList<(int Id, string Name, int[] Tracks)> GetPlaylists(string path)
         {
             var result = new List<(int Id, string Name, int[] Tracks)>();
@@ -148,14 +158,16 @@ namespace ItunesMusicExporter
             return result;
         }
 
-        public static IList<(string Name, IEnumerable<(int Id, string Name, string Location)> Tracks)> GetTracksAndPlaylistsCombined(string path)
+        [Obsolete("Dirty")]
+        public static IList<(int Id, string Name, IEnumerable<(int Id, string Name, string Location)> Tracks)> GetTracksAndPlaylistsCombined(string path)
         {
             var tracks = GetTracks(path);
             var playlists = GetPlaylists(path);
 
             return playlists.Select(x =>
             {
-                (string Name, IEnumerable<(int Id, string Name, string Location)> Tracks) y;
+                (int Id, string Name, IEnumerable<(int Id, string Name, string Location)> Tracks) y;
+                y.Id = x.Id;
                 y.Name = x.Name;
                 y.Tracks = x.Tracks.Select(t => (t, tracks.First(i => i.Key == t).Name, tracks.First(i => i.Key == t).Location)).ToArray();
 
